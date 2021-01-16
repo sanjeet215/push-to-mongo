@@ -1,0 +1,24 @@
+server:
+  port: 9096
+  
+spring:
+  data:
+    mongodb:
+      #uri: mongodb+srv://scorpiousdb:password007@cluster0.qs7wt.mongodb.net/scorpious-demo?retryWrites=true&w=majority
+      host: 127.0.0.1
+      port: 27017      auto-index-creation: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest  
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 8   
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-attempts: 6
+          max-interval: 10s
+          multiplier: 2      
